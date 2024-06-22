@@ -217,7 +217,7 @@ penguins %>% group_by(cluster) %>% summarise(
 )
 # i pinguini con una massa corporea maggiore tendono ad avere il becco piu lungo e meno spesso
 # quelli meno pesanti ad avere il becco piu corto e spesso
-# la media dell'ala del cluster "rumoroso" e' nettamente maggiore dei altri due claster per colpa di un outlier
+# la media della pinna del cluster "rumoroso" e' nettamente maggiore dei altri due claster per colpa di un outlier
 
 # Visualizzo i cluster
 fviz_cluster(dbscan_result, data = penguins_scaled, geom = "point", ellipse = FALSE) + theme_minimal()
@@ -243,4 +243,4 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = cluster)) +
 
 # filtrando:
 ggplot(penguins_filtered, aes(x = flipper_length_mm, y = body_mass_g, color = cluster)) + geom_point() + theme_minimal()
-# all'aumentare del peso corporeo aumenta anche la lunghezza delle ali
+# all'aumentare del peso corporeo aumenta anche la lunghezza delle pinne
