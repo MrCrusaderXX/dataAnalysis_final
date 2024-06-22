@@ -220,7 +220,7 @@ penguins %>% group_by(cluster) %>% summarise(
 # la media dell'ala del cluster "rumoroso" e' nettamente maggiore dei altri due claster per colpa di un outlier
 
 # Visualizzo i cluster
-fviz_cluster(dbscan_result, data = penguins_scaled, geom = "point", ellipse = FALSE, show.clust.cent = FALSE) + theme_minimal()
+fviz_cluster(dbscan_result, data = penguins_scaled, geom = "point", ellipse = FALSE) + theme_minimal()
 # la visualizzazione non e' ottima per colpa dei punti rumorosi
 
 # Filtro i punti rumorosi
@@ -231,11 +231,11 @@ dbscan_result_filtered <- dbscan(penguins_scaled_filtered, eps = 0.8, minPts = 5
 dbscan_result_filtered
 
 # Visualizzo i cluster senza i punti rumorosi
-fviz_cluster(dbscan_result_filtered, data = penguins_scaled_filtered, geom = "point", ellipse = FALSE, show.clust.cent = FALSE) + theme_minimal()
+fviz_cluster(dbscan_result_filtered, data = penguins_scaled_filtered, geom = "point", ellipse = FALSE) + theme_minimal()
 # la prima dimensione ha una variabilita' dei dati maggiore rispetto alla seconda
 
 
-# Scatter plot per vedere i cluster identificati
+# Vediamo graficamente i cluster identificati
 ggplot(penguins, aes(x = culmen_length_mm, y = culmen_depth_mm, color = cluster)) + geom_point() + theme_minimal()
 ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g, color = cluster)) + geom_point() + theme_minimal()
 #notiamo 2 un outlier ovvero:
