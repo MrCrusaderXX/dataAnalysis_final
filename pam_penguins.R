@@ -177,8 +177,13 @@ points(pam.out$medoids[, c("flipper_length_mm", "body_mass_g")],
        col="black")
 
 
+
 #Clustering con DBSCAN
+# Carico i pacchetti necessari
+library(ggplot2)
+library(dplyr)
 library(dbscan)
+
 #Seleziono le variabili numeriche
 penguins_num <- penguins %>% select(culmen_length_mm, culmen_depth_mm, flipper_length_mm, body_mass_g)
 
