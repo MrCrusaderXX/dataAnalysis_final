@@ -225,6 +225,7 @@ fviz_cluster(dbscan_result, data = penguins_scaled, geom = "point", ellipse = FA
 
 # Filtro i punti rumorosi
 penguins_scaled_filtered <- penguins_scaled[penguins$cluster != 0, ]
+penguins_filtered <- penguins %>% filter(cluster != 0)
 
 # Applico nuovamente DBSCAN sul dataframe filtrato (senza i punti rumorosi)
 dbscan_result_filtered <- dbscan(penguins_scaled_filtered, eps = 0.8, minPts = 5)
